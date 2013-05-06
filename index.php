@@ -3,7 +3,9 @@
 	    <link href="style.css" rel="stylesheet" type="text/css">
 	    <script src="jquery-1.9.1.min.js"></script>
 	</head>
-
+	<?php
+		include 'settings.php';
+	?>
 	<body>
 		<script type="text/javascript">
 
@@ -26,31 +28,31 @@
 			}
 
 			function startXBMC() {
-				execCommand("sudo /sbin/initctl start xbmc", "Start xbmc");
+				execCommand("sudo /sbin/initctl start xbmc", "<?php echo $lang['Start_XBMC'];?>");
 			}
 
 			function stopXBMC() {
-				execCommand("sudo /sbin/initctl stop xbmc", "Stop xbmc");
+				execCommand("sudo /sbin/initctl stop xbmc", "<?php echo $lang['Stop_XBMC'];?>");
 			}
 
-			function startTorrent() {
-				execCommand("sudo /etc/init.d/transmission-daemon start", "Start torrent");
+			function startTransmission() {
+				execCommand("sudo /etc/init.d/transmission-daemon start", "<?php echo $lang['Start_Trans'];?>");
 			}
 
-			function stopTorrent() {
-				execCommand("sudo /etc/init.d/transmission-daemon stop", "Stop torrent");
+			function stopTransmission() {
+				execCommand("sudo /etc/init.d/transmission-daemon stop", "<?php echo $lang['Stop_Trans'];?>");
 			}
 
 			function givePermissions() {
-				execCommand("sudo chmod -R 777 /media/HDE; sudo chmod 777 /media/HDE", "Start torrent");
+				execCommand("sudo chmod -R 777 /media/HDE; sudo chmod 777 /media/HDE", "<?php echo $lang['Give_Perm'];?>");
 			}
 
 			function shutdown() {
-				var r = confirm("Segur?");
-				execCommand("sudo /sbin/shutdown -h now", "Shutting down");
+				var r = confirm("<?php echo $lang['Sure?'];?>");
+				execCommand("sudo /sbin/shutdown -h now", "<?php echo $lang['Shutdown'];?>");
 			}
 
-			function goTorrent() {
+			function goTransmission() {
 				window.open("http://transmission:1234@192.168.1.60:9091", "_blank");
 			}
 
@@ -60,10 +62,6 @@
 
 			function showBrowser() {
 				document.getElementById("filler").innerHTML = '<object data="browser.php">';
-			}
-
-			function showTorrent() {
-				document.getElementById("filler").innerHTML = '<object data="torrent.php">';
 			}
 
 			function showScheduler() {
@@ -86,8 +84,8 @@
 				    	command: "xmbcPID",
 					},
 				    function(dat) {
-				        if (dat) html = '<button type="button" onclick="stopXBMC()">Stop XBMC</button> '
-				        else html = '<button type="button" onclick="startXBMC()">Start XBMC</button> ';
+				        if (dat) html = '<button type="button" onclick="stopXBMC()"><?php echo $lang['Stop_XBMC'];?></button>';
+				        else html = '<button type="button" onclick="startXBMC()"><?php echo $lang['Start_XBMC'];?></button>';
 
 				    	$.get(
 						    "infoUpd.php",
@@ -95,12 +93,12 @@
 						    	command: "transmissionPID",
 							},
 						    function(dat) {
-						        if (dat) html += '<button type="button" onclick="stopTorrent()">Stop Transmission</button> ' + 
-						        				 '<button type="button" onclick="goTorrent()">Transmission</button> ';
-						        else html += '<button type="button" onclick="startTorrent()">Start Transmission</button> ';
+						        if (dat) html += '<button type="button" onclick="stopTransmission()"><?php echo $lang['Stop_Trans'];?></button> ' + 
+						        				 '<button type="button" onclick="goTransmission()">Transmission</button>';
+						        else html += '<button type="button" onclick="startTransmission()"><?php echo $lang['Start_Trans'];?></button> ';
 
-						        html += '<button type="button" type="button" onclick="givePermissions()">Donar permissos</button>' +
-										'<button type="button" type="button" style="background-color:red" onclick="shutdown()">Apagar</button>';
+						        html += '<button type="button" type="button" onclick="givePermissions()"><?php echo $lang['Give_Perm'];?></button>' +
+										'<button type="button" type="button" style="background-color:red" onclick="shutdown()"><?php echo $lang['Shutdown'];?></button>';
 
 		    							document.getElementById("buttons").innerHTML = html;
 		    							document.body.style.height = "2000px";
@@ -121,11 +119,10 @@
 	    <div class="block" id="buttons"></div>
 
 		<div class="block" id="moreButtons">
-			<button type="button" type="button" onclick="showInfo()">Info</button>
-			<button type="button" type="button" onclick="showBrowser()">Browser</button>
-			<button type="button" type="button" onclick="showTorrent()">Torrent</button>
-			<button type="button" type="button" onclick="showScheduler()">Scheduler</button>
-			<button type="button" type="button" onclick="showRadio()">Radio</button>
+			<button type="button" type="button" onclick="showInfo()"><?php echo $lang['Info'];?></button>
+			<button type="button" type="button" onclick="showBrowser()"><?php echo $lang['Browser'];?></button>
+			<button type="button" type="button" onclick="showScheduler()"><?php echo $lang['Scheduler'];?></button>
+			<button type="button" type="button" onclick="showRadio()"><?php echo $lang['Radio'];?></button>
 		</div>  
 
 		<div class="filler" id="filler"> </div>
