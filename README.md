@@ -25,19 +25,22 @@ Lines folowed by # are console commands
 
 4. Install Transmission
 	
-	# sudo apt-get install transmission-daemon
-	# sudo /etc/init.d/transmission-daemon stop
-	# sudo nano /etc/transmission-daemon/settings.json
-	Change: 	"rpc-whitelist”: “127.0.0.1"		to:	“rpc-whitelist”: “*.*.*.*”,
-			“rpc-password”: “password” 				“rpc-password”: “yourpassword“
-			“rpc-username”: “username” 				“rpc-username”: “yourusername“
-			“download-dir”:	"somefolder"			“download-dir”: "yourfolder"
-	ctrl+x then y to save
-	# sudo chmod g+rw yourfolder
-	# sudo chgrp -R debian-transmission yourfolder
-	# sudo /etc/init.d/transmission-daemon start
+		# sudo apt-get install transmission-daemon
+		# sudo /etc/init.d/transmission-daemon stop
+		# sudo nano /etc/transmission-daemon/settings.json
+		Change: 	"rpc-whitelist”: “127.0.0.1"		to:	“rpc-whitelist”: “*.*.*.*”,
+				“rpc-password”: “password” 				“rpc-password”: “yourpassword“
+				“rpc-username”: “username” 				“rpc-username”: “yourusername“
+				“download-dir”:	"somefolder"			“download-dir”: "yourfolder"
+		ctrl+x then y to save
+		# sudo chmod g+rw yourfolder
+		# sudo chgrp -R debian-transmission yourfolder
+		# sudo /etc/init.d/transmission-daemon start
 5. Add script to start up:  move mystartup.sh to /etc/init.d
-	# chmod +x /etc/init.d/mystartup.sh
-	# update-rc.d mystartup.sh defaults 100
+		# chmod +x /etc/init.d/mystartup.sh
+		# update-rc.d mystartup.sh defaults 100
 
-**The following change make your RaspberryPi vulnerable, if you intent to use it in public create another more restricted user**
+Disclamer
+=========
+
+Step 2 make your RaspberryPi vulnerable, if you intent to use it in public create another more restricted user.
