@@ -36,7 +36,8 @@ Lines folowed by # are console commands
 		# sudo chmod g+rw yourfolder
 		# sudo chgrp -R debian-transmission yourfolder
 		# sudo /etc/init.d/transmission-daemon start
-5. Add script to start up:  
+5. Add script to start up:
+
 		move mystartup.sh to /etc/init.d
 		# chmod +x /etc/init.d/mystartup.sh
 		# update-rc.d mystartup.sh defaults 100
