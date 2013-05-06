@@ -1,6 +1,10 @@
 <script src="jquery-1.9.1.min.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css">
 
+<?php
+	include 'settings.php';
+?>
+
 <script type="text/javascript">
 
 	function apply() {
@@ -74,6 +78,6 @@
 	<input type="text" name="stopTorrentTimeH" placeholder="hh" id="stopTorrentTimeH" class="timeInput">
 	:
 	<input type="text" name="stopTorrentTimeM" placeholder="mm" id="stopTorrentTimeM" class="timeInput">
-	<button type="button" onclick="apply()">Aplicar</button>
-	<button type="button" onclick="cancelar()">Cancelar</button>
+	<button type="button" onclick="apply()"><?php echo $lang['Apply'];?></button>
+	<button type="button" onclick="cancelar()"><?php echo $lang['Cancel'];?></button>
 </div>

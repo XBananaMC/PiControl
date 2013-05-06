@@ -13,6 +13,10 @@
 	var memArray = new Array();
 	var cpuArray = new Array();
 
+	<?php
+		include 'settings.php';
+	?>
+
 	function drawRamChart() {
 	    $.get(
 		    "infoUpd.php",
@@ -129,12 +133,12 @@
 		if (auto) {
 			clearTimeout(t);
 			auto = false;
-			document.getElementById("updateButton").innerHTML = "Autoupdate";
+			document.getElementById("updateButton").innerHTML = "<?php echo $lang['Autoupdate'];?>";
 		}
 		else {
 			updateTimer();
 			auto = true;
-			document.getElementById("updateButton").innerHTML = "Stop";
+			document.getElementById("updateButton").innerHTML = "<?php echo $lang['Stop'];?>";
 		}
 	}
 
@@ -169,9 +173,8 @@
 </div>
 
 <div class="block">
-	<button type="button" onclick="goBack()">Go Back</button>
-	<button type="button" onclick="updateAll()">Update</button>
-	<button type="button" onclick="stopUpdate()" id="updateButton">Stop</button>
+	<button type="button" onclick="updateAll()"><?php echo $lang['Update'];?></button>
+	<button type="button" onclick="stopUpdate()" id="updateButton"><?php echo $lang['Stop'];?></button>
 	<a id="upText" style="float: right;">0</a>
 </div>
 
