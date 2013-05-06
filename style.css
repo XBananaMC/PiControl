@@ -1,0 +1,132 @@
+@media only screen and (max-device-width: 480px) {
+    /* write smartphone styles here */
+
+    body {
+		max-height:		300px; 
+		width:			200px;
+		max-width: 		200px; 
+		min-width: 		200px;
+		margin:			0px;
+		padding:		0px;
+		float:			center;  
+	}
+
+	button {
+		height:			165px; 
+		width:			965px;
+		margin-top: 	10px;
+		margin-left: 	6px;
+    	float: 			center;
+    	font-size: 		80px;
+	}
+
+	input {
+		height: 		165px;
+		width:			965px;
+		margin-bottom: 	10px;
+		font-size: 		80px;
+		margin-left: 	6px;
+		float: 			center;
+	}
+
+	.messageText {
+		font-size:		90px;
+		width:			965px;
+	}
+
+	.banner {
+		background: rgb(122,188,255);
+		background: -moz-linear-gradient(top,  rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1)));
+		background: -webkit-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		background: -o-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		background: -ms-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		background: linear-gradient(to bottom,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 );
+
+		height:			165px; 
+		width:			985px;
+		margin:			0px;
+		padding:		0px; 
+		font-size: 		90px;
+		float: 			center;
+		text-align: 	center;
+		vertical-align: middle;
+		display: 		table-cell;
+		min-height: 	165px;
+		min-width: 		980px;
+	}
+
+	#moreButtons {
+		visibility:hidden;
+	}
+
+}
+
+@media only screen and (max-device-width: 768px) {
+    /* tablets in portrait mode */
+}
+
+@media only screen and (min-device-width: 1024px) {
+	body {
+		margin: 	auto; 
+		padding: 	0px;
+		width:		1000px;
+
+	}
+
+	button {
+		width: 150px;
+		margin: 5px;
+		padding: 0px;
+	}
+
+	input {
+		width: 150px;
+	}
+
+	object {
+		width: 		inherit;
+		height: 	100%;		
+		overflow: 	hidden;
+	}
+
+	.block {
+		border-style:	solid;
+		border-width:	5px;
+		margin-top: 	5px;
+		padding: 		2px;
+		width:			auto;		
+		overflow: 		hidden;
+
+	}
+
+	.filler {
+		width:		inherit;		
+		overflow: 	hidden;
+	}
+
+	.banner {
+		background: rgb(122,188,255);
+		background: -moz-linear-gradient(top,  rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1)));
+		background: -webkit-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		background: -o-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		background: -ms-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		background: linear-gradient(to bottom,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 );
+		height:			60px; 
+		width:			1000px;
+		margin:			0px;
+		padding:		0px;
+		float: 			center;
+		text-align: 	center;
+		vertical-align: middle;
+		display: 		table-cell;
+		font-size: 		30px;
+	}
+
+	.timeInput {
+		width: 40px;
+	}
+}
