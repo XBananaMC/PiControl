@@ -29,7 +29,7 @@
 				$.get(
 		    		"infoUpd.php",
 		    		{
-		    			command: "sleep " + start + "m; sudo /etc/init.d/transmission-daemon start; transmission-remote --auth=transmission:1234 -t all -s"
+		    			command: "sleep " + start + "m; sudo /etc/init.d/transmission-daemon start; transmission-remote --auth=<?php echo $transmissionUser.":".$transmissionPassword;?> -t all -s"
 					}
 				);
 				$.get(
@@ -69,12 +69,12 @@
 </script>
 
 <div class="block">
-	<div class="title">Torrent</div>
-	Start:
+	<div class="title">Transmission</div>
+	<?php echo $lang['Start'];?>:
 	<input type="text" name="startTorrentTimeH" placeholder="hh" id="startTorrentTimeH" class="timeInput">
 	:
 	<input type="text" name="startTorrentTimeM" placeholder="mm" id="startTorrentTimeM" class="timeInput">
-	Stop:
+	<?php echo $lang['Stop'];?>:
 	<input type="text" name="stopTorrentTimeH" placeholder="hh" id="stopTorrentTimeH" class="timeInput">
 	:
 	<input type="text" name="stopTorrentTimeM" placeholder="mm" id="stopTorrentTimeM" class="timeInput">

@@ -1,4 +1,6 @@
 <?php
+	include 'settings.php';
+
 	$command = $_REQUEST['command'];
 	$commandName = $_REQUEST['commandName'];
 
@@ -14,12 +16,12 @@
 			echo $output;
 			break;
 		case "disk":
-			exec('df -h /media/HDE', $out);
+			exec('df -h '.$mediaDirectory, $out);
 			$output = preg_split("![\s,]+!", $out[1]);
 			$output2 = preg_replace("!G!", ' ', $output[3]);
 			echo $output2;
 			echo " ";
-			exec('du -h /media/HDE -d 1', $out2);
+			exec('du -h '.$mediaDirectory.' -d 1', $out2);
 			$output3 = preg_replace("!G!", '', $out2[0]);
 			echo $output3 . " ";
 			$output3 = preg_replace("!G!", '', $out2[1]);

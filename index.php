@@ -2,6 +2,7 @@
 	<head>
 	    <link href="style.css" rel="stylesheet" type="text/css">
 	    <script src="jquery-1.9.1.min.js"></script>
+	    <title>Pi Control</title>
 	</head>
 	<?php
 		include 'settings.php';
@@ -49,15 +50,17 @@
 
 			function shutdown() {
 				var r = confirm("<?php echo $lang['Sure?'];?>");
-				execCommand("sudo /sbin/shutdown -h now", "<?php echo $lang['Shutdown'];?>");
+				if (r) execCommand("sudo /sbin/shutdown -h now", "<?php echo $lang['Shutdown'];?>");
 			}
 
 			function goTransmission() {
-				window.open("http://transmission:1234@192.168.1.60:9091", "_blank");
+				window.open("http://<?php echo $transmissionUser.":".$transmissionPassword."@".$ip.":".$transmissionPort;?>", "_blank");
 			}
 
 			function showInfo() {
+				
 				document.getElementById("filler").innerHTML = '<object data="info.php">';
+				document.body.style.height = "2000px";
 			}
 
 			function showBrowser() {
@@ -84,8 +87,8 @@
 				    	command: "xmbcPID",
 					},
 				    function(dat) {
-				        if (dat) html = '<button type="button" onclick="stopXBMC()"><?php echo $lang['Stop_XBMC'];?></button>';
-				        else html = '<button type="button" onclick="startXBMC()"><?php echo $lang['Start_XBMC'];?></button>';
+				        if (dat) html = '<button type="button" onclick="stopXBMC()"><?php echo $lang['Stop_XBMC'];?></button> ';
+				        else html = '<button type="button" onclick="startXBMC()"><?php echo $lang['Start_XBMC'];?></button> ';
 
 				    	$.get(
 						    "infoUpd.php",
@@ -94,14 +97,13 @@
 							},
 						    function(dat) {
 						        if (dat) html += '<button type="button" onclick="stopTransmission()"><?php echo $lang['Stop_Trans'];?></button> ' + 
-						        				 '<button type="button" onclick="goTransmission()">Transmission</button>';
+						        				 '<button type="button" onclick="goTransmission()">Transmission</button> ';
 						        else html += '<button type="button" onclick="startTransmission()"><?php echo $lang['Start_Trans'];?></button> ';
 
-						        html += '<button type="button" type="button" onclick="givePermissions()"><?php echo $lang['Give_Perm'];?></button>' +
-										'<button type="button" type="button" style="background-color:red" onclick="shutdown()"><?php echo $lang['Shutdown'];?></button>';
+						        html += '<button type="button" onclick="givePermissions()"><?php echo $lang['Give_Perm'];?></button> ' +
+										'<button type="button" style="background-color:red" onclick="shutdown()"><?php echo $lang['Shutdown'];?></button> ';
 
 		    							document.getElementById("buttons").innerHTML = html;
-		    							document.body.style.height = "2000px";
 						    }
 						);
 				    }
@@ -119,10 +121,10 @@
 	    <div class="block" id="buttons"></div>
 
 		<div class="block" id="moreButtons">
-			<button type="button" type="button" onclick="showInfo()"><?php echo $lang['Info'];?></button>
-			<button type="button" type="button" onclick="showBrowser()"><?php echo $lang['Browser'];?></button>
-			<button type="button" type="button" onclick="showScheduler()"><?php echo $lang['Scheduler'];?></button>
-			<button type="button" type="button" onclick="showRadio()"><?php echo $lang['Radio'];?></button>
+			<button type="button" onclick="showInfo()"><?php echo $lang['Info'];?></button>
+			<button type="button" onclick="showBrowser()"><?php echo $lang['Browser'];?></button>
+			<button type="button" onclick="showScheduler()"><?php echo $lang['Scheduler'];?></button>
+			<button type="button" onclick="showRadio()"><?php echo $lang['Radio'];?></button>
 		</div>  
 
 		<div class="filler" id="filler"> </div>

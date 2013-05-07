@@ -18,6 +18,7 @@ $lang['Give_Perm'] 		= 'Donar permissos';
 $lang['Shutdown'] 		= 'Apagar';
 $lang['Sure?'] 			= 'Segur?';
 $lang['Stop'] 			= 'Stop';
+$lang['Start'] 			= 'Start';
 $lang['Autoupdate'] 	= 'Auto-actualitzar';
 $lang['Update'] 		= 'Actualitzar';
 $lang['Apply'] 			= 'Applicar';
