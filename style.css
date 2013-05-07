@@ -122,4 +122,10 @@
 	.timeInput {
 		width: 40px;
 	}
+
+	#upText {
+		float: 			right;
+		margin-right: 	10px;
+		margin-top:		3px;
+	}
 }

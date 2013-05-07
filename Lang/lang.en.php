@@ -23,4 +23,7 @@ $lang['Autoupdate'] 	= 'Autoupdate';
 $lang['Update'] 		= 'Update';
 $lang['Apply'] 			= 'Apply';
 $lang['Cancel'] 		= 'Cancel';
+$lang['Free'] 			= 'Free';
+$lang['Time'] 			= 'Time';
+$lang['UpTime'] 		= 'UpTime';
 ?>

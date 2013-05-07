@@ -60,7 +60,7 @@
 	   			chart.draw(data, options);
 
 	   			document.getElementById("upText").innerHTML = 
-	   									"Pi time: " + d[9] + " " + d[15] + " " + d[16] + " " + d[18] + " ";
+	   									"<?php echo $lang['Time'];?>: " + d[9] + " <?php echo $lang['UpTime'];?>: " + d[13];
 		    }
 		);
 	}
@@ -74,14 +74,12 @@
 		    "infoUpd.php",
 		    {command: "disk"},
 		    function(dat) {
-		        var d = dat.split(" ");
-		        data.addRows([
-		        	['Free', parseInt(d[0])],
-		        	['Cristina', parseInt(d[2])],
-		        	['Gerard', parseInt(d[3])],
-		        	['Downloads', parseInt(d[4])],
-		        	['Mama-Papa', parseInt(d[5])],
-		        ]);
+		        var d = dat.split("/");
+		        var l = d.length-2;
+		        for (var i = 0; i < l; i += 2) {
+		        	data.addRow([d[i+1], parseInt(d[i])]);
+		        }
+		        
 
 		        var options = {'title':'Disk',
 	                   'width':400,
@@ -175,7 +173,7 @@
 <div class="block">
 	<button type="button" onclick="updateAll()"><?php echo $lang['Update'];?></button>
 	<button type="button" onclick="stopUpdate()" id="updateButton"><?php echo $lang['Stop'];?></button>
-	<a id="upText" style="float: right;">0</a>
+	<a id="upText"></a>
 </div>
 
 <div class="block" id="topList">Top</div>

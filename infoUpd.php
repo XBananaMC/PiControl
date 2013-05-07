@@ -12,24 +12,20 @@
 			echo $output[1] . " ";
 			echo $output[2];
 			exec('uptime', $out2);
-			$output = preg_replace("!(\d+:\d+:\d+)(.*) \d+ \w+,.+(\d+\.\d+), (\d+\.\d+), (\d+\.\d+)!", "$1 $3 $4 $5 $2", $out2[0]);
+			$output = preg_replace("!(\d+:\d+:\d+)(.*), (.*) \d+ \w+,.+(\d+\.\d+), (\d+\.\d+), (\d+\.\d+)!", "$1 $2", $out2[0]);
 			echo $output;
 			break;
 		case "disk":
 			exec('df -h '.$mediaDirectory, $out);
-			$output = preg_split("![\s,]+!", $out[1]);
-			$output2 = preg_replace("!G!", ' ', $output[3]);
-			echo $output2;
-			echo " ";
-			exec('du -h '.$mediaDirectory.' -d 1', $out2);
-			$output3 = preg_replace("!G!", '', $out2[0]);
-			echo $output3 . " ";
-			$output3 = preg_replace("!G!", '', $out2[1]);
-			echo $output3 . " ";
-			$output3 = preg_replace("!G!", '', $out2[2]);
-			echo $output3 . " ";
-			$output3 = preg_replace("!G!", '', $out2[3]);
-			echo $output3;
+			$out = preg_split("![\s,]+!", $out[1]);
+			$out = preg_replace("!(\d)G!", '$1', $out[3]);
+			echo $out . "/". $lang['Free'] ."/";
+
+			exec('du -h '.$mediaDirectory.' -d 1', $out);
+			$out = preg_replace("!(\d)G!", "$1", $out);
+			$out = preg_replace("!".$mediaDirectory."!", "", $out);
+			foreach ($out as $val)
+    			echo $val . "/";
 			break;
 		case "temp":
 			exec('/opt/vc/bin/vcgencmd measure_temp', $out);
@@ -60,7 +56,7 @@
 			break;
 		default:
 			if ($commandName == "background") exec("($command) >/dev/null 2>/dev/null &");
-			else $out = exec("$command");
+			else $out = system("$command");
 			if ($out == NULL and !$altError) echo '<script type="text/javascript"> showError("Error in command '.$commandName.' ('.$command.'), or not return value."); </script>';
 			break;
 	}

@@ -23,4 +23,7 @@ $lang['Autoupdate'] 	= 'Auto-actualitzar';
 $lang['Update'] 		= 'Actualitzar';
 $lang['Apply'] 			= 'Applicar';
 $lang['Cancel'] 		= 'Cancelar';
+$lang['Free'] 			= 'Lliure';
+$lang['Time'] 			= 'Temps';
+$lang['UpTime'] 		= 'Ences';
 ?>
