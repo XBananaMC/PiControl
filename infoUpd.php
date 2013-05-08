@@ -55,8 +55,10 @@
 			}
 			break;
 		default:
+			echo '<pre>';
 			if ($commandName == "background") exec("($command) >/dev/null 2>/dev/null &");
 			else $out = system("$command");
+			echo '</pre>';
 			if ($out == NULL and !$altError) echo '<script type="text/javascript"> showError("Error in command '.$commandName.' ('.$command.'), or not return value."); </script>';
 			break;
 	}

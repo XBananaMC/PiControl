@@ -60,7 +60,7 @@
 	   			chart.draw(data, options);
 
 	   			document.getElementById("upText").innerHTML = 
-	   									"<?php echo $lang['Time'];?>: " + d[9] + " <?php echo $lang['UpTime'];?>: " + d[13];
+	   									"<?php echo $lang['Time'];?>: " + d[9] + " <?php echo $lang['UpTime'];?>: " + d[12]  + " " + d[13] + " " + d[15];
 		    }
 		);
 	}

@@ -65,7 +65,6 @@
 		margin: 	auto; 
 		padding: 	0px;
 		width:		1000px;
-
 	}
 
 	button {
@@ -127,5 +126,10 @@
 		float: 			right;
 		margin-right: 	10px;
 		margin-top:		3px;
+	}
+
+	.title {
+		font-size: 	20px;
+		margin: 	5px;
 	}
 }
