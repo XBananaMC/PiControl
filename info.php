@@ -91,6 +91,25 @@
 		);
 	}
 
+	var prevNetUp = 0;
+	var prevNetDown = 0;
+
+	function showNetUsage() {
+		$.get(
+		    "infoUpd.php",
+		    {command: "net"},
+		    function(dat) {
+		    	var d = dat.split(" ");
+		    	//alert(dat);
+		    	//alert(d);
+		    	var text = "<?php echo $lang['Down'];?>: " + ((d[10] - prevNetDown)/2048).toFixed(0) + " KB/s <?php echo $lang['Up'];?>: " +  ((d[11] - prevNetUp)/2048).toFixed(0) + " KB/s";
+		    	document.getElementById("netText").innerHTML = text;
+		    	prevNetUp = d[11];
+		    	prevNetDown = d[10];
+		    }
+		);
+	}
+
 	function drawTempChart() {
 		$.get(
 		    "infoUpd.php",
@@ -122,7 +141,8 @@
 		drawRamChart();
 		drawTempChart();
 		updateTop();
-		t = setTimeout(function(){updateTimer()},3000);
+		showNetUsage();
+		t = setTimeout(function(){updateTimer()},2000);
 	}
 
 	var auto = true;
@@ -156,6 +176,7 @@
 		drawDiskChart();
 		drawRamChart();
 		updateTop();
+		showNetUsage();
 	}
 
 </script>
@@ -173,6 +194,7 @@
 <div class="block">
 	<button type="button" onclick="updateAll()"><?php echo $lang['Update'];?></button>
 	<button type="button" onclick="stopUpdate()" id="updateButton"><?php echo $lang['Stop'];?></button>
+	<a id="netText">0</a>
 	<a id="upText"></a>
 </div>
 

@@ -27,6 +27,11 @@
 			foreach ($out as $val)
     			echo $val . "/";
 			break;
+		case "net":
+			exec("/sbin/ifconfig eth0", $out);
+			$output = preg_replace("!RX bytes:(\w+) \(\w+.\w+ \w+\) \ TX bytes:(\w+) \(\w+.\w+ \w+\)!", "$1 $2" , $out[7]);
+			echo $output;
+			break;
 		case "temp":
 			exec('/opt/vc/bin/vcgencmd measure_temp', $out);
 			$output = preg_replace("!temp=(\d+.\d)'C!", '$1', $out);

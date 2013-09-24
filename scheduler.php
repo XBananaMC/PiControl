@@ -29,7 +29,7 @@
 				$.get(
 		    		"infoUpd.php",
 		    		{
-		    			command: "sleep " + start + "m; sudo /etc/init.d/transmission-daemon start; transmission-remote --auth=<?php echo $transmissionUser.":".$transmissionPassword;?> -t all -s"
+		    			command: "sleep " + start + "m; sudo /etc/init.d/transmission-daemon start; sleep 30s; transmission-remote --auth=<?php echo $transmissionUser.":".$transmissionPassword;?> -t all -s"
 					}
 				);
 				$.get(

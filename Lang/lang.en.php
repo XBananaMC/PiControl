@@ -26,4 +26,6 @@ $lang['Cancel'] 		= 'Cancel';
 $lang['Free'] 			= 'Free';
 $lang['Time'] 			= 'Time';
 $lang['UpTime'] 		= 'UpTime';
+$lang['Up'] 			= 'Up';
+$lang['Down'] 			= 'Down';
 ?>
