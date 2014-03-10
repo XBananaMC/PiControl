@@ -6,3 +6,8 @@ body {
 .navbar {
   margin-bottom: 20px;
 }
+
+.logs-header {
+	padding-right: 70px;
+	padding-left: 70px;
+}
