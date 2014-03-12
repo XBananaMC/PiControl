@@ -11,3 +11,23 @@ body {
 	padding-right: 70px;
 	padding-left: 70px;
 }
+
+.info-table {
+	width: 100%;
+}
+
+.ramChart {
+	width: 60%;
+}
+
+.tempChart {
+	width: 15%;
+}
+
+.diskChart {
+	width: 25%;
+}
+
+.header-button {
+	margin-right: 10px;
+}

@@ -11,7 +11,7 @@
 	function saveLog($type, $user, $info) {
 		//$type == INFO, WARNING OR ERROR
 		$file = fopen("logs/".date('d-m-Y', time()).".txt","a");
-		$data = $type . " " . date('H:i:s-d-m-Y', time()) . " " . $user . " " . $info . "\n";
+		$data = $type . " " . date('H:i:s d-m-Y', time()) . " " . $user . " " . $info . "\n";
 		fwrite($file, $data);
 		fclose($file);
 	}

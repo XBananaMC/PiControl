@@ -2,6 +2,32 @@
 	include 'header.php';
 ?>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<table class="info-table">
+				<tr>
+					<td id="ramChart"></td>
+					<td id="tempChart"></td>
+					<td id="diskChart"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<button type="button" class="btn btn-default" onclick="updateAll()"><?php echo $lang['Update'];?></button>
+			<button type="button" class="btn btn-default" onclick="stopUpdate()" id="updateButton"><?php echo $lang['Stop'];?></button>
+			<a id="netText">0</a>
+			<a id="upText" class="pull-right"></a>
+		</div>
+	</div>
+
+	<div id="topList">
+	</div>
+
 	<script type="text/javascript">
 
 		google.load('visualization', '1.0', {'packages':['corechart']});
@@ -39,7 +65,7 @@
 					}
 
 					var options = {'title':'Memory / CPU',
-								   'width':400,
+								   'width': 500,
 								   'height':300,
 								   vAxes:{
 										0: {title: 'kB', minValue: 0, maxValue: 153020, logScale: false},
@@ -175,33 +201,6 @@
 			showNetUsage();
 		}
 
-	</script>
-
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<table>
-				<tr>
-					<td id="ramChart"></td>
-					<td id="tempChart"></td>
-					<td id="diskChart"></td>
-				</tr>
-			</table>
-		</div>
-	</div>
-
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<button type="button" class="btn btn-default" onclick="updateAll()"><?php echo $lang['Update'];?></button>
-			<button type="button" class="btn btn-default" onclick="stopUpdate()" id="updateButton"><?php echo $lang['Stop'];?></button>
-			<a id="netText">0</a>
-			<a id="upText" class="pull-right"></a>
-		</div>
-	</div>
-
-	<div id="topList">
-	</div>
-
-	<script type="text/javascript">
 		document.getElementById("info-tab").setAttribute("class", "active");
 	</script>
 <?php

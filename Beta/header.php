@@ -45,8 +45,8 @@
 						command: "xmbcPID",
 					},
 					function(dat) {
-						if (dat) html = '<button type="button" class="btn btn-default navbar-btn" onclick="stopXBMC()"><?php echo $lang['Stop_XBMC'];?></button> ';
-						else html = '<button type="button" class="btn btn-default navbar-btn" onclick="startXBMC()"><?php echo $lang['Start_XBMC'];?></button> ';
+						if (dat) html = '<button type="button" class="btn btn-default navbar-btn header-button" onclick="stopXBMC()"><?php echo $lang['Stop_XBMC'];?></button> ';
+						else html = '<button type="button" class="btn btn-default navbar-btn header-button" onclick="startXBMC()"><?php echo $lang['Start_XBMC'];?></button> ';
 
 						document.getElementById("xbmcButton").innerHTML = html;
 					}
@@ -94,7 +94,7 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right" id="xbmcButton">
-						<button type="button" class="btn btn-default navbar-btn">XBMC</button>
+						<button type="button" class="btn btn-default navbar-btn header-button">XBMC</button>
 					</ul>
 				</div>
 			</nav>
