@@ -31,3 +31,11 @@ body {
 .header-button {
 	margin-right: 10px;
 }
+
+#netText {
+	margin-right: 30px;
+}
+
+.inline {
+	display: inline;
+}

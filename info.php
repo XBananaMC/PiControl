@@ -20,8 +20,8 @@
 		<div class="panel-body">
 			<button type="button" class="btn btn-default" onclick="updateAll()"><?php echo $lang['Update'];?></button>
 			<button type="button" class="btn btn-default" onclick="stopUpdate()" id="updateButton"><?php echo $lang['Stop'];?></button>
-			<a id="netText">0</a>
-			<a id="upText" class="pull-right"></a>
+			<p class="inline pull-right" id="upText" class="pull-right"></p>
+			<p class="inline pull-right" id="netText">0</p>
 		</div>
 	</div>
 

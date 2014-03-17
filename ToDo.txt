@@ -1,0 +1,9 @@
+- Add .torrent files adder
+- Make browser usable
+- Add TVShows and Movies
+- Add Stats
+- Add Logs Filter
+- Add Settings
+- Add user support
+
+- CPU graph doesn't work
