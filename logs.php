@@ -42,24 +42,24 @@
 						$char = fgetc($file);
 						switch ($char) {
 							case 'I': //INFO
-								echo "<tr><td>";
+								echo '<tr class="info"><td><span class="label label-info logs-label">Info</span>';
 								break;
 							case 'W': //WARNING
-								echo "<tr class='warning'><td>";
+								echo '<tr class="warning"><td><span class="label label-warning logs-label">Warning</span>';
 								break;
 							case 'E': //ERROR
-								echo "<tr class='danger'><td>";
+								echo '<tr class="danger"><td><span class="label label-danger logs-label">Danger</span>';
 								break;
 							case ' ':
 								$count++;
-								if ($count < 4) echo "</td><td>";
+								if ($count < 4 && $count > 1) echo "</td><td>";
 								break;
 							case "\n":
 								echo "</td></tr>";
 								$count = 0;
 								break;
 						}
-						echo $char;
+						if ($count > 1) echo $char;
 					}
 					fclose($file);
 				?>

@@ -39,3 +39,9 @@ body {
 .inline {
 	display: inline;
 }
+
+.logs-label {
+	float: left;
+	margin-top: 2px;
+	position: relative;
+}
